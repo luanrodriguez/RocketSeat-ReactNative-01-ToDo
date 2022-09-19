@@ -22,7 +22,7 @@ export function TodoCard({description, completed, handleCompleteTaskButton, hand
             </TouchableOpacity>
 
             <Text 
-                style={completed? {...styles.taskDescription, textDecorationLine: 'line-through'} : styles.taskDescription}
+                style={completed? {...styles.taskDescription, textDecorationLine: 'line-through', color: '#999999'} : styles.taskDescription}
             >
                 {description}
             </Text>
