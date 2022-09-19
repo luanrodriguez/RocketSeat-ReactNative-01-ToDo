@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     taskDescription: {
         flex: 1,
         marginHorizontal: 8,
-        fontSize: 14
+        fontSize: 14,
+        color: "#fff"
     },
     removeTaskButton: {
         height: 32,

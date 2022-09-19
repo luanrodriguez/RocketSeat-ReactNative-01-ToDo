@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     },
     CreatedOrCompletedText: {
         fontSize: 14,
-        fontWeight: '700'
+        fontWeight: '700',
     },
     CreatedOrCompletedNumber: {
         width: 25,
@@ -39,5 +39,6 @@ export const styles = StyleSheet.create({
     EmptyTitle: {
         marginTop: 16,
         fontWeight: '700',
+        color: '#fff'
     }
 })

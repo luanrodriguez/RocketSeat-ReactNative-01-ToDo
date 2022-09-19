@@ -21,7 +21,7 @@ export function TodoList({tasks}: TodoListProps) {
 
 
                     <View style={styles.CreatedOrCompletedNumber}>
-                        <Text>
+                        <Text style={{color: '#fff'}}>
                             {tasks.length}
                         </Text>
                     </View>
@@ -33,7 +33,7 @@ export function TodoList({tasks}: TodoListProps) {
                     </Text>
 
                     <View style={styles.CreatedOrCompletedNumber}>
-                        <Text>
+                        <Text style={{color: '#fff'}}>
                             {tasks.filter(task => task.completed).length}
                         </Text>
                     </View>
@@ -62,7 +62,7 @@ export function TodoList({tasks}: TodoListProps) {
                             Você ainda não tem tarefas cadastradas
                         </Text>
 
-                        <Text>
+                        <Text style={{color: '#fff'}}>
                             Crie tarefas e organize seus itens a fazer
                         </Text>
                     </View>
