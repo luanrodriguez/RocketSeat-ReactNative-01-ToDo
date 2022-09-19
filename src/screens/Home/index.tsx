@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {View, Image, TextInput, TouchableOpacity} from 'react-native'
+import {View, Image, TextInput, TouchableOpacity, Alert} from 'react-native'
 
 import { TodoCardProps } from '../../components/TodoCard'
 import { TodoList } from '../../components/TodoList'
@@ -13,15 +13,28 @@ export function Home() {
     const [tasks, setTasks] = useState<TodoCardProps[]>([])
 
     function handleAddTaskButton() {
-        setTasks(prevState => [
-            ...prevState,
-            {
-                description: inputTaskDescription,
-                completed: false,
-                handleCompleteTaskButton: handleCompleteTaskButton,
-                handleRemoveTaskButton: handleRemoveTaskButton
+        setTasks(prevState => {
+            let sameDescription = false
+            prevState.forEach(task => {
+                if(task.description === inputTaskDescription) {
+                    sameDescription = true
+                }
+            })
+            if(!sameDescription){
+                return(
+                    [
+                    ...prevState,
+                    {
+                        description: inputTaskDescription,
+                        completed: false,
+                        handleCompleteTaskButton: handleCompleteTaskButton,
+                        handleRemoveTaskButton: handleRemoveTaskButton
+                    }
+                ])
             }
-        ])
+            Alert.alert('Tarefa repetida', 'Já existe uma tarefa com essa descrição')
+            return prevState
+            })
         setInputTaskDescription('')
     }
 
@@ -44,7 +57,18 @@ export function Home() {
     }
 
     function handleRemoveTaskButton(description: string) {
-        setTasks(prevState => prevState.filter(task => task.description !== description))
+        Alert.alert('Remover', `Deseja remover a task "${description}?"`,
+        [
+            {
+                text: 'Não',
+                style: 'cancel'
+            },
+            {
+                text: 'Sim',
+                onPress: () => {setTasks(prevState => prevState.filter(task => task.description !== description))}
+            }
+        ])
+        
     }
 
 

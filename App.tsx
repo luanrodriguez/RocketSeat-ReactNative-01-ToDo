@@ -5,7 +5,7 @@ import { Home } from './src/screens/Home';
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor='transparent' barStyle='light-content'/>
+      <StatusBar backgroundColor='#000' barStyle='light-content'/>
       <Home />
     </View>
   );
